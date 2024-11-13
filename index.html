@@ -132,55 +132,55 @@
             </div>
             <div class="row">
                 <div class="col-4 col-t-6 col-p-12">
-                    <div class="project">
+                    <div class="project website">
                         <img src="img/project-1.webp" alt="project 1" width="370" height="370" class="img-resp" loading="lazy">
                         <div class="box">
-                            <h3>Project Name</h3>
+                            <h3>Website 1</h3>
                             <p>Designed By | Author</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-4 col-t-6 col-p-12">
-                    <div class="project">
+                    <div class="project website">
                         <img src="img/project-1.webp" alt="project 1" width="370" height="370" class="img-resp" loading="lazy">
                         <div class="box">
-                            <h3>Project Name</h3>
+                            <h3>Website 2</h3>
                             <p>Designed By | Author</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-4 col-t-6 col-p-12">
-                    <div class="project">
+                    <div class="project website">
                         <img src="img/project-1.webp" alt="project 1" width="370" height="370" class="img-resp" loading="lazy">
                         <div class="box">
-                            <h3>Project Name</h3>
+                            <h3>Website 3</h3>
                             <p>Designed By | Author</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-4 col-t-6 col-p-12">
-                    <div class="project">
+                    <div class="project branding">
                         <img src="img/project-1.webp" alt="project 1" width="370" height="370" class="img-resp" loading="lazy">
                         <div class="box">
-                            <h3>Project Name</h3>
+                            <h3>Branding 1</h3>
                             <p>Designed By | Author</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-4 col-t-6 col-p-12">
-                    <div class="project">
+                    <div class="project branding">
                         <img src="img/project-1.webp" alt="project 1" width="370" height="370" class="img-resp" loading="lazy">
                         <div class="box">
-                            <h3>Project Name</h3>
+                            <h3>Branding 2</h3>
                             <p>Designed By | Author</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-4 col-t-6 col-p-12">
-                    <div class="project">
+                    <div class="project branding">
                         <img src="img/project-1.webp" alt="project 1" width="370" height="370" class="img-resp" loading="lazy">
                         <div class="box">
-                            <h3>Project Name</h3>
+                            <h3>Branding 3</h3>
                             <p>Designed By | Author</p>
                         </div>
                     </div>
@@ -435,6 +435,55 @@
             <p>Designed by Author</p>
             <button><span class="fa fa-chevron-up"></span></button>
         </div>
-    </footer>         
+    </footer>    
+<script src="js/jquery.min.js"></script>
+<script>
+$(function(){
+
+    /* .tabs */
+    $(".wrap-5 .btn").on("click",function(){
+        $(".wrap-5 .btn").removeClass("active");
+        $(this).addClass("active");
+        if( $(this).text()=="All" ){ 
+            $(".wrap-5 .project").fadeIn();
+        }
+        else if( $(this).text()=="Website" ){ 
+            $(".wrap-5 .project").fadeOut(0);
+            $(".wrap-5 .website").fadeIn();
+        }
+        else if( $(this).text()=="Branding" ){
+            $(".wrap-5 .project").fadeOut(0);
+            $(".wrap-5 .branding").fadeIn();
+         }
+    });
+
+    /* accordion */
+    $(".accordion a").on("click",function(e){
+        e.preventDefault();
+        $(".accordion a").removeClass("active");
+        $(this).addClass("active");
+        $(".accordion p").slideUp();
+        $(this).next("p").slideDown();
+    });
+
+    /* go to top */
+    $(".wrap-13 button").on("click",function(){
+        console.log("sss"); 
+        $("html,body").animate({scrollTop:0});
+    });
+
+    /* mobile menu */
+    $("header .menu").on("click",function(){
+        $(this).toggleClass("active");
+        $(".collapse").slideToggle();
+    });
+    if(screen.width<767){
+        $(".collapse nav a").click(function(){
+            $(".collapse").slideUp();
+            $("header .menu").removeClass("active");
+        });
+    }
+});
+</script>
 </body>
 </html>
