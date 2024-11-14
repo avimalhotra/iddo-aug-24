@@ -1,6 +1,7 @@
 *, ::before,::after{ margin: 0; box-sizing: border-box;}
 a{ text-decoration: none;}
 button{ cursor: pointer; padding: 0;}
+:disabled{ cursor: not-allowed;}
 label{ display: block;}
 img{ vertical-align: bottom;}
 ul{ list-style: none; padding: 0;}
@@ -68,7 +69,7 @@ body{
 
 /* custom layout */
 
-header{ background: #000; color: #fff; position: sticky; top: 0; z-index: 10;}
+header{ background: #000; color: #fff; position: sticky; top: 0; z-index: 1;}
 h1{ font-size: 30px;}
 h1 a{ color: inherit; line-height: 80px; display: inline-block; }
 .btn{border: solid 2px;color: var(--red);border-radius: 10px; width: 90px; height: 35px; background: none; font: 16px var(--ff);}
@@ -82,12 +83,12 @@ nav a{ color: inherit; display: block; line-height: 80px; padding: 0 1rem;}
 .menu.active span:nth-child(3){ transform: rotate(14deg);}
 
 
-.wrap-2{background: #666; color: #fff; }
-.video{ padding: 20rem 0;}
+.wrap-2{background: #666; color: #fff; padding: 50px 0; }
 .video button{ border: none; background: none; font-size: 10rem; color: inherit; margin-right: 40px;}
 .video p{ font: 100 4rem var(--ff);}
 .video a{ color: #fff; }
-
+.wrap-2 video{ display: none; max-width: 100%; height: auto;}
+.video{ padding: 200px 0; }
 
 .wrap-3{ background: var(--red); color: #fff; padding: 50px 0;}
 h2{ font-size: 72px; line-height: 60px; border-bottom: 10px solid; margin-bottom: 2rem;}
@@ -113,12 +114,16 @@ h2{ font-size: 72px; line-height: 60px; border-bottom: 10px solid; margin-bottom
 .wrap-6{ background: #666; color: #fff; text-align: center; padding: 4rem 0 2rem;}
 .wrap-6 p{ font: 100 36px/41px var(--ff); margin-bottom: 1rem; }
 .wrap-6 figcaption{ font-weight: 700; margin: 10px 0 30px; }
-.wrap-6 .slide{ display: none;}
+/* .wrap-6 .slide{ display: none;}
 .wrap-6 .slide.active{ display: block;}
 .pager{ list-style: none; padding: 0; }
 .pager li{ margin: 0 5px;}
 .pager a{ display: block; width: 10px; height: 10px; border: 2px solid; color: #fff; border-radius: 50%; }
-.pager a.active{ background: #fff;}
+.pager a.active{ background: #fff;} */
+.wrap-6 .bx-wrapper{ background: none; border: none; box-shadow: 0 0;}
+.wrap-6 .bx-wrapper img{ display: inline;}
+.wrap-6 .bx-wrapper .bx-pager.bx-default-pager a{ border: 2px #fff solid;}
+.wrap-6 .bx-wrapper .bx-pager.bx-default-pager a.active,.wrap-6 .bx-wrapper .bx-pager.bx-default-pager a:focus,.wrap-6 .bx-wrapper .bx-pager.bx-default-pager a:hover{ background: #fff;}
 
 
 
@@ -181,6 +186,13 @@ address a{ color: inherit;}
 .wrap-13 h3{ font-size: 30px;}
 .wrap-13 p{ font: 100 14px var(--ff) ;}
 .wrap-13 button{ background: none; border: none; color: var(--red); font-size: 36px;}
+
+.popover{ position: fixed; inset: 0; background: #222c; z-index: 2;}
+.dialog{ position: fixed; z-index: 3; left: 50%; transform: translate(-50%); top: 100px; background: #fff; padding: 1rem;}
+.dialog label{ padding: 10px 0;}
+.dialog label input{ float: right; margin-left: 20px;}
+.dialog .close{ position: absolute; right: 5px; top: 5px; color: var(--red); border: none; background: none; }
+
 
 
 /* IPAD Landscape */

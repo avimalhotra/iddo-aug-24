@@ -7,6 +7,8 @@
     <link rel="icon" href="img/jack.webp">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
 </head>
 <body id="home">
     <header class="wrap-1">
@@ -37,6 +39,7 @@
     </header>
     <div class="wrap-2" role="banner">
         <div class="container">
+            <video src="img/techaltum.mp4" controls width="1170" height=""></video>
             <div class="video">
                 <div class="flex align-center">
                     <div><button><i class="fa fa-play-circle-o"></i></button></div>
@@ -49,7 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-4 col-t-6 col-p-12">
-                    <h2>OUR SERVICES.</h2>
+                    <h2 data-aos="fade-up">OUR SERVICES.</h2>
                 </div>
                 <div class="col-8 col-t-12">
                     <div class="row gy-60">
@@ -126,7 +129,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-4 col-t-6 col-p-12">
-                    <h2>OUR WORKS.</h2>
+                    <h2 data-aos="fade-down">OUR WORKS.</h2>
                     <button class="btn active">All</button><button class="btn">Website</button><button class="btn">Branding</button>
                 </div>
             </div>
@@ -195,15 +198,6 @@
                 <div class="col-2"></div>
                 <div class="col-8 col-t-12">
                     <div class="slider">
-                        <div class="slide active">
-                            <blockquote>
-                                <p><q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci vitae, ratione ipsa fuga odit vero eveniet impedit</q></p>
-                                <figure>
-                                    <img src="img/jack.webp" alt="jack efron" width="70" height="70" loading="lazy">
-                                    <figcaption>JACK EFRON</figcaption>
-                                </figure>
-                            </blockquote>
-                        </div>
                         <div class="slide">
                             <blockquote>
                                 <p><q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci vitae, ratione ipsa fuga odit vero eveniet impedit</q></p>
@@ -222,11 +216,20 @@
                                 </figure>
                             </blockquote>
                         </div>
-                        <ol class="pager flex justify-center">
+                        <div class="slide">
+                            <blockquote>
+                                <p><q>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci vitae, ratione ipsa fuga odit vero eveniet impedit</q></p>
+                                <figure>
+                                    <img src="img/jack.webp" alt="jack efron" width="70" height="70" loading="lazy">
+                                    <figcaption>JACK EFRON</figcaption>
+                                </figure>
+                            </blockquote>
+                        </div>
+                        <!-- <ol class="pager flex justify-center">
                             <li><a href="" class="active"></a></li>
                             <li><a href=""></a></li>
                             <li><a href=""></a></li>
-                        </ol>
+                        </ol> -->
                     </div>
                 </div>
             </div>
@@ -435,9 +438,22 @@
             <p>Designed by Author</p>
             <button><span class="fa fa-chevron-up"></span></button>
         </div>
-    </footer>    
+    </footer>  
+    <div hidden class="popupform">
+        <button class="close"><span class="fa fa-times"></span></button>
+        <form>
+            <label>Email : <input type="email" required> </label>
+            <label>Phone : <input type="tel" required> </label>
+            <label>Password : <input type="password" required> </label>
+            <button class="btn">Sign Up</button>
+        </form>
+    </div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    
 <script src="js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
 <script>
+    AOS.init();
 $(function(){
 
     /* .tabs */
@@ -483,6 +499,34 @@ $(function(){
             $("header .menu").removeClass("active");
         });
     }
+
+    $(".signup").click(function(){
+        $("body").append(`<div class="popover"></div>`);
+        $("body").append(`<div class="dialog"></div>`);
+        $(".dialog").append($(".popupform").html());
+
+        function close(){ $(".popover,.dialog").remove()}
+
+        $(".dialog .close, .popover").click(function(){close()});
+        $(window).keyup(function(e){
+            if(e.which==27){close()}
+        });
+    });
+
+    $(".wrap-2 button, .wrap-2 a").click(function(e){
+        e.preventDefault();
+        $(".wrap-2 video").css({"display":"inline"});
+        $(".wrap-2 .video").fadeOut();
+        $(".wrap-2 video").trigger("play");
+    });
+
+    $(".slider").bxSlider({
+        controls:false,
+        auto:true,
+        autoHover:true
+    });
+
+
 });
 </script>
 </body>
